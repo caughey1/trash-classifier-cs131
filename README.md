@@ -4,10 +4,10 @@
 
 Most people who use the [TrashNet](https://github.com/garythung/trashnet) dataset feed the photos straight into a neural network. We're expanding on this by running CS131 computer vision steps on the images first (edge detection, contouring, and so on), then train the same kind of classifier and see if that helps.
 
-So we have two paths:
+We have two paths:
 
 1. **Baseline** — normal TrashNet photos → ResNet → predict the trash type  
-2. **Our approach** — preprocessed photos (e.g. Canny edges) → same ResNet → predict the trash type  
+2. **Our approach** — preprocessed photos → ResNet → predict the trash type  
 
 If preprocessing helps, we can say the extra CV layer was worth it. If not, that's still a useful result.
 
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ## Get the data and splits
 
-**Step 1 — download the images** (~40 MB zip):
+**Step 1: download the images** (~40 MB zip):
 
 ```bash
 python src/download_data.py
@@ -34,13 +34,13 @@ python src/download_data.py
 
 This puts images in `data/dataset-resized/` (one folder per class).
 
-**Step 2 — build train / val / test lists:**
+**Step 2: build train / val / test lists:**
 
 ```bash
 python src/split_data.py
 ```
 
-That writes three files in `splits/`: about 70% train, 13% validation, 17% test. We use TrashNet's official split so our numbers are comparable to other work.
+That writes three files in `splits/`: about 70% train, 13% validation, 17% test. We use TrashNet's original split so our numbers are comparable to other work.
 
 ## Train the model
 
@@ -58,13 +58,6 @@ python src/train.py --input-type processed --epochs 15
 
 Training saves the best model in `checkpoints/` and results (accuracy, confusion matrix) in `runs/`.
 
-On a Mac, if you get an SSL error when downloading ImageNet weights, try:
-
-```bash
-/Applications/Python\ 3.13/Install\ Certificates.command
-```
-
-Then run training again.
 
 ## Check results on a saved model
 

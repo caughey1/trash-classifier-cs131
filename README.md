@@ -2,7 +2,7 @@
 
 ## What this project is
 
-Most people who use the [TrashNet](https://github.com/garythung/trashnet) dataset feed the photos straight into a neural network and call it a day. We're expanding on this by running CS131 computer vision steps on the images first (edge detection, contouring, and so on), then train the same kind of classifier and see if that helps.
+Most people who use the [TrashNet](https://github.com/garythung/trashnet) dataset feed the photos straight into a neural network. We're expanding on this by running CS131 computer vision steps on the images first (edge detection, contouring, and so on), then train the same kind of classifier and see if that helps.
 
 So we have two paths:
 

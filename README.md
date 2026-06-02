@@ -9,8 +9,6 @@ We have two paths:
 1. **Baseline** — normal TrashNet photos → ResNet → predict the trash type  
 2. **Our approach** — preprocessed photos → ResNet → predict the trash type  
 
-If preprocessing helps, we can say the extra CV layer was worth it. If not, that's still a useful result.
-
 TrashNet has about 2,500 images in six categories: glass, paper, cardboard, plastic, metal, and trash.
 
 ## Setup (first time only)

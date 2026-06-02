@@ -1,7 +1,10 @@
 # Data and model artifacts
 data/
 checkpoints/
-runs/
+.cache/
+runs/*
+!runs/resnet18_raw_baseline/
+!runs/resnet18_raw_baseline/**
 
 # Python
 __pycache__/

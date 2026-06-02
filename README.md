@@ -30,7 +30,7 @@ pip install -r requirements.txt
 python src/download_data.py
 ```
 
-This puts images in `data/dataset-resized/` (one folder per class).
+This puts images in `data/dataset-resized/` with one folder for each class. Classes are glass, paper, cardboard, metal, plastic, and trash.
 
 **Step 2: build train / val / test lists:**
 
@@ -38,7 +38,11 @@ This puts images in `data/dataset-resized/` (one folder per class).
 python src/split_data.py
 ```
 
-That writes three files in `splits/`: about 70% train, 13% validation, 17% test. We use TrashNet's original split so our numbers are comparable to other work.
+We use TrashNet's original split so our numbers are comparable to other work. Three files are written in 'splits/':
+
+Train: 70% (1768 images)
+Validation: 13% (328 images)
+Test: 17% (431 images)
 
 ## Train the model
 

@@ -5,7 +5,10 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 RAW_DATA_DIR = DATA_DIR / "dataset-resized"
-PROCESSED_DATA_DIR = DATA_DIR / "processed"
+PROCESSED_DATA_DIR = DATA_DIR / "processed"  # Canny edges: data/processed/glass/, ...
+CONTOUR_DATA_DIR = PROCESSED_DATA_DIR / "contour"
+CONTOUR_OVERLAY_DATA_DIR = PROCESSED_DATA_DIR / "contour_overlay"
+EDGE_OVERLAY_DATA_DIR = PROCESSED_DATA_DIR / "edge_overlay"
 SPLITS_DIR = PROJECT_ROOT / "splits"
 CHECKPOINTS_DIR = PROJECT_ROOT / "checkpoints"
 RUNS_DIR = PROJECT_ROOT / "runs"

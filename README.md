@@ -1,6 +1,6 @@
 # Trash Classifier (CS131)
 
-## project Overview
+## Project Overview
 
 Waste classification is a common and costly problem. Most automated approaches treat this as a standard image classification task, feeding raw photos into a convolutional neural network. This project tests whether preprocessing with explicit edge information — extracted using a Canny edge detector — improves a neural network's ability to classify waste. 
 
@@ -146,6 +146,6 @@ python src/evaluate.py --checkpoint checkpoints/YOUR_RUN_NAME_best.pt --split te
 - `src/train_fusion.py` — ResNet18 on raw + processed fused
 - `src/evaluate.py` — test a saved model
 
-## citation
+## Citation
 
 TrashNet: https://github.com/garythung/trashnet

@@ -1,10 +1,19 @@
 # Trash Classifier (CS131)
 
-## What this project is
+## project Overview
 
-Most people who use the [TrashNet](https://github.com/garythung/trashnet) dataset feed the photos straight into a neural network. We're expanding on this by running CS131 computer vision steps on the images first (edge detection, contouring, and so on), then train the same kind of classifier and see if that helps.
+Waste classification is a common and costly problem. Most automated approaches treat this as a standard image classification task, feeding raw photos into a convolutional neural network. This project tests whether preprocessing with explicit edge information — extracted using a Canny edge detector — improves a neural network's ability to classify waste. 
 
-TrashNet has about 2,500 images in six categories: glass, paper, cardboard, plastic, metal, and trash.
+Our base architecture was the ResNet18 in PyTorch. We trained on the Trashnet dataset: ~2500 images of waste, classified into 6 categories: glass, cardboard, paper, plastic, metal, trash.
+
+We investigated 2 methods of pre-processing integration:
+Base model — ResNet18 trained on raw RGB TrashNet images
+Overlay model — Canny edge detector applied to grayscale images, edges overlaid on the original
+Fusion model — raw RGB + Canny edge map stacked into a 6-channel input (3 RGB + 3 replicated edge channels), trained as a distinct model
+
+Each model outputs a probability score across all 6 classes; final prediction is the class with the highest averaged score across all three models (ensemble averaging). The intuition: each model makes different mistakes depending on which visual cues it relies on (texture/color vs. shape/structure), so averaging cancels out some of those individual errors.
+
+Our best result was outputted with a three-model ensemble: 95.8% accuracy, a 2.8-point improvement over baseline and a 20% reduction in total errors. The three-model creates a final prediction where each model outputs a probability score across all 6 classes; final prediction is the class with the highest averaged score across all three models (ensemble averaging).
 
 ## Setup (first time only)
 
